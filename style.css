@@ -1,0 +1,2123 @@
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+ 
+/* Basic Reset and Font Import */
+body, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    font-family: 'Lora', serif; /* Elegant font */
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.container {
+    max-width: 1200px; /* Set a max width for large screens */
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    color: #f67a06a5; /* Gold color for luxury */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #FFFFFF; /* White color on hover */
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #FFFFFF; /* White text */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    position: relative;
+}
+
+/* Hover Effect for Navigation Links */
+.nav-links a:hover {
+    color: #f886048d; /* Gold color on hover */
+}
+
+/* Underline effect on hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: #f886048d; /* Gold underline */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links a {
+        padding: 10px 0;
+    }
+}
+
+
+
+
+
+
+/* Hero Section with Sliding Photo Animation */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: white;
+    overflow: hidden; /* Ensure images don't overflow */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: slideAnimation 20s infinite ease-in-out; /* Slide animation */
+}
+
+/* Sliding photo animation */
+@keyframes slideAnimation {
+    0% { background-image: url('./images/home\ 1.jpeg'); }   /* Replace with your image URLs */
+    25% { background-image: url('./images/home\ 2.jpeg'); }
+    50% { background-image: url('./images/home\ 3.jpeg'); }
+    75% { background-image: url('./images/home\ 4.jpeg'); }
+    100% { background-image: url('./images/home\ 5.jpeg'); } /* Loop back to first image */
+}
+
+/* Overlay for making text stand out */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(139, 69, 19, 0.7); /* Brick red with transparency */
+    z-index: 0;
+}
+
+/* Hero content (remains unchanged) */
+.hero-content {
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+
+/* Buttons - Elegant and Luxury Look */
+.btn {
+    background: linear-gradient(135deg, #8B4513, #fab885); /* Gradient from deep brick red to lighter tone */
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 30px; /* More rounded edges */
+    cursor: pointer;
+    margin-right: 15px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Gold border hover effect */
+.btn:hover {
+    background: linear-gradient(135deg, #b3622b, #8b4513); /* Reverse gradient on hover */
+    color: #f7f6f5b3; /* Gold text for luxury feel */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+/* Remove the before pseudo-element glitch by switching to a clean hover effect */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Subtle highlight effect */
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    border-radius: 30px;
+    z-index: -1; /* Keep the effect behind the text */
+}
+
+.btn:hover::after {
+    opacity: 1; /* Highlight becomes visible on hover */
+}
+
+/* Ensures the text stays above the effect */
+.btn span {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Search Bar - Elegant and Luxury Look */
+.search-bar {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    z-index: 1;
+}
+
+.search-bar input[type="date"],
+.search-bar input[type="text"] {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.8); /* Semi-transparent white border */
+    background-color: rgba(255, 255, 255, 0.455); /* Transparent background */
+    color: white; /* White text for contrast */
+    border-radius: 30px; /* Smooth rounded corners */
+    outline: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Hover and Focus Effects */
+.search-bar input[type="date"]:hover,
+.search-bar input[type="text"]:hover,
+.search-bar input[type="date"]:focus,
+.search-bar input[type="text"]:focus {
+    border: 1px solid #f886048d; /* Gold border on hover */
+    background-color: rgba(254, 244, 244, 0.436); /* Lighten the transparent background */
+    color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+}
+
+/* Search Button - Transparent with Luxury Look */
+.search-bar input[type="submit"] {
+    background-color: transparent; /* Fully transparent background */
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Semi-transparent white border */
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Hover Effect for Search Button */
+.search-bar input[type="submit"]:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque on hover */
+    border: 2px solid #f9a94f8d; /* Gold border on hover */
+    color: #fefcfa; /* Gold text on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+/* Basic Reset */
+body, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Lora', serif; /* Elegant font */
+    color: #333; /* Dark text for readability */
+    line-height: 1.6;
+}
+
+/* Basic Reset */
+body, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Lora', serif; /* Elegant font */
+    color: #333; /* Dark text for readability */
+    line-height: 1.6;
+}
+
+/* Basic Reset */
+body, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Lora', serif; /* Elegant font */
+    color: #333; /* Dark text for readability */
+    line-height: 1.6;
+}
+
+/* Basic Reset */
+body, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Lora', serif; /* Elegant font */
+    color: #333; /* Dark text for readability */
+    line-height: 1.6;
+}
+
+/* About the Resort Section */
+.about-resort {
+    background-color: #F8F8F8; /* Light gray background for modern feel */
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.title-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.title-decorator {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #8B4513; /* Brick red color */
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.title-decorator.top-left {
+    top: -20px;
+    left: -20px;
+}
+
+.title-decorator.bottom-right {
+    bottom: -20px;
+    right: -20px;
+}
+
+.title-wrapper h2 {
+    font-size: 48px; /* Larger font size for impact */
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px; /* Padding to make space for background elements */
+    background-color: #FFFFFF; /* White background for title */
+    border-radius: 8px;
+}
+
+.title-underline {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 6px;
+    background: linear-gradient(90deg, #FFD700, #8B4513); /* Gold to Brick red gradient */
+    border-radius: 3px;
+}
+
+/* Card-Based Layout */
+.card {
+    background-color: #FFFFFF; /* White background for cards */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.card p {
+    font-size: 16px;
+    color: #666; /* Darker gray for paragraph text */
+    margin-bottom: 15px;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card li {
+    font-size: 16px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 10px;
+}
+
+/* Hover Effect for Cards */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+/* Guest Testimonials Section */
+.guest-testimonials {
+    background-color: #FFFFFF; /* White background for clarity */
+    padding: 60px 30px;
+    text-align: center;
+    border-top: 5px solid #8B4513; /* Brick red border at the top */
+}
+
+.guest-testimonials h2 {
+    font-size: 36px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.guest-testimonials h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #8B4513; /* Brick red underline */
+    margin: 10px auto 0;
+}
+
+.testimonial-intro {
+    font-size: 18px;
+    color: #666; /* Darker gray for intro text */
+    margin-bottom: 30px;
+}
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.testimonial-card {
+    background-color: #F8F8F8; /* Light gray background for cards */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #8B4513; /* Brick red border */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 2px solid #8B4513; /* Brick red border around images */
+}
+
+.testimonial-info {
+    padding: 0;
+}
+
+.quote {
+    font-size: 18px;
+    color: #333; /* Dark gray for quote text */
+    margin-bottom: 15px;
+    font-style: italic;
+    position: relative;
+}
+
+.quote::before {
+    content: "“";
+    font-size: 40px;
+    color: #8B4513; /* Brick red color */
+    position: absolute;
+    top: -10px;
+    left: -25px;
+}
+
+.guest-name {
+    font-size: 16px;
+    color: #8B4513; /* Brick red color */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.rating {
+    font-size: 16px;
+    color: #8B4513; /* Brick red color */
+}
+
+.rating span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.rating span:first-child {
+    font-size: 20px;
+}
+
+.rating span:last-child {
+    font-size: 14px;
+}
+
+.testimonial-footer {
+    margin-top: 40px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8B4513; /* Brick red color */
+    color: #FFFFFF; /* White text */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #6F3E1A; /* Darker brick red for hover effect */
+}
+
+@media (max-width: 768px) {
+    .testimonials {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+    
+
+
+/* Photo Gallery Section */
+.photo-gallery {
+    background-color: #FFFFFF; /* White background for clarity */
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.photo-gallery h2 {
+    font-size: 36px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.photo-gallery h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #8B4513; /* Brick red underline */
+    margin: 10px auto 0;
+}
+
+.gallery-intro {
+    font-size: 18px;
+    color: #666; /* Darker gray for intro text */
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay with transparency */
+    color: #FFFFFF; /* White text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.virtual-tour {
+    margin-top: 40px;
+}
+
+.virtual-tour h3 {
+    font-size: 28px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.virtual-tour p {
+    font-size: 18px;
+    color: #666; /* Darker gray for paragraph text */
+    margin-bottom: 20px;
+}
+
+.virtual-tour iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+/* Location and Contact Information Section */
+.location-contact {
+    background-color: #FFFFFF; /* White background for clarity */
+    padding: 80px 40px; /* Increased padding for more space */
+    text-align: center;
+    border-top: 5px solid #8B4513; /* Brick red border at the top */
+}
+
+.location-contact h2 {
+    font-size: 42px; /* Larger font size for a more impressive title */
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 30px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.location-contact h2::after {
+    content: "";
+    display: block;
+    width: 80px; /* Wider underline for emphasis */
+    height: 5px;
+    background-color: #8B4513; /* Brick red underline */
+    margin: 15px auto 0;
+}
+
+.location-map {
+    margin-bottom: 60px; /* Increased margin for spacing */
+}
+
+.map-container {
+    max-width: 100%;
+    height: 450px; /* Increased height for better visibility */
+    border-radius: 15px; /* Larger border radius for a more elegant look */
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.20); /* More pronounced shadow for depth */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.contact-info {
+    font-size: 20px; /* Larger font size for readability */
+    color: #333; /* Dark gray for text */
+    margin-bottom: 60px; /* Increased margin for spacing */
+}
+
+.contact-info h3 {
+    font-size: 32px; /* Larger font size for section heading */
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-info h3::after {
+    content: "";
+    display: block;
+    width: 60px; /* Underline to match the heading */
+    height: 4px;
+    background-color: #8B4513; /* Brick red underline */
+    margin: 10px auto 0;
+}
+
+.contact-info p {
+    margin: 15px 0; /* Increased margin for better spacing */
+}
+
+.social-media {
+    margin-top: 40px;
+}
+
+.social-media h3 {
+    font-size: 32px; /* Larger font size for section heading */
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.social-media h3::after {
+    content: "";
+    display: block;
+    width: 60px; /* Underline to match the heading */
+    height: 4px;
+    background-color: #8B4513; /* Brick red underline */
+    margin: 10px auto 0;
+}
+
+.social-media a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 18px;
+    color: #FFFFFF; /* White text */
+    background-color: #8B4513; /* Brick red background */
+    padding: 12px 25px;
+    border-radius: 25px;
+    margin: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.social-media a:hover {
+    background-color: #6F3E1A; /* Darker brick red for hover effect */
+    color: #FFFFFF; /* Ensure text is readable on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .location-contact {
+        padding: 60px 20px;
+    }
+
+    .map-container {
+        height: 300px; /* Adjusted height for smaller screens */
+    }
+
+    .contact-info, .social-media {
+        font-size: 16px;
+    }
+}
+
+
+/* Footer Section */
+.footer {
+    background-color: #FAFAFA; /* Light gray background for a sophisticated look */
+    color: #333; /* Dark gray text for readability */
+    padding: 60px 20px; /* Increased padding for a more spacious feel */
+    border-top: 5px solid #8B4513; /* Brick red border at the top */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px; /* Increased margin for spacing */
+}
+
+.quick-links, .social-media, .contact-info {
+    flex: 1;
+    margin: 20px;
+    text-align: center; /* Center align for a refined look */
+}
+
+.quick-links h3, .social-media h3, .contact-info h3 {
+    font-size: 28px; /* Larger font size for luxury feel */
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.quick-links h3::after, .social-media h3::after, .contact-info h3::after {
+    content: "";
+    display: block;
+    width: 60px; /* Underline to match the heading */
+    height: 5px;
+    background-color: #8B4513; /* Brick red underline */
+    margin: 10px auto 0;
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links ul li {
+    margin: 15px 0;
+}
+
+.quick-links ul li a {
+    color: #8B4513; /* Brick red color */
+    text-decoration: none;
+    font-size: 20px; /* Larger font size for readability */
+    transition: color 0.3s ease;
+}
+
+.quick-links ul li a:hover {
+    color: #6F3E1A; /* Darker brick red for hover effect */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img {
+    width: 36px; /* Adjust icon size */
+    height: 36px;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.contact-info p {
+    font-size: 18px; /* Larger font size for better readability */
+    margin: 10px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 16px;
+    color: #333; /* Dark gray text */
+    border-top: 1px solid #E0E0E0; /* Light gray border for separation */
+    padding-top: 20px; /* Padding for spacing */
+}
+
+.footer-bottom p {
+    margin: 10px 0;
+}
+
+.footer-bottom a {
+    color: #8B4513; /* Brick red color */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #6F3E1A; /* Darker brick red for hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .quick-links, .social-media, .contact-info {
+        margin: 0 0 20px;
+    }
+}
+
+
+
+
+/* Book Now Page */
+.book-now {
+    background-color: #FFFFFF; /* White background for clarity */
+    color: #333; /* Dark gray text for readability */
+    padding: 60px 20px;
+}
+
+.booking-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.booking-intro h1 {
+    font-size: 36px; /* Large font size for the title */
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.booking-intro p {
+    font-size: 18px;
+    color: #555; /* Slightly lighter gray for the description */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #F9F9F9; /* Light gray background for form */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.booking-form .form-group {
+    margin-bottom: 20px;
+}
+
+.booking-form label {
+    display: block;
+    font-size: 16px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 8px;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="email"],
+.booking-form input[type="tel"],
+.booking-form input[type="date"],
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E0E0E0; /* Light gray border */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333; /* Dark gray text */
+}
+
+.booking-form textarea {
+    height: 120px; /* Larger height for textarea */
+    resize: vertical; /* Allow vertical resize */
+}
+
+.booking-form .btn-submit {
+    background-color: #8B4513; /* Brick red background */
+    color: #FFFFFF; /* White text */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.booking-form .btn-submit:hover {
+    background-color: #6F3E1A; /* Darker brick red for hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .booking-intro h1 {
+        font-size: 28px;
+    }
+
+    .booking-form {
+        padding: 20px;
+    }
+}
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #101010;
+}
+
+/* Header */
+.header {
+    background-color: #FFFFFF; /* White background for clarity */
+    border-bottom: 5px solid #8B4513; /* Brick red bottom border for elegance */
+    padding: 20px 0;
+    box-shadow: 0 4px 12px rgba(246, 241, 241, 0.844); /* Subtle shadow for depth */
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.header .logo img {
+    height: 60px; /* Adjust logo height for a more refined appearance */
+}
+
+.navbar {
+    flex: 1;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center align for a balanced look */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Equal spacing for navigation items */
+}
+
+.navbar ul li a {
+    color: #f5ecec; /* Dark gray text for readability */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #8B4513; /* Brick red color on hover */
+}
+
+.btn-book-now {
+    background-color: #8B4513; /* Brick red background for the button */
+    color: #FFFFFF; /* White text */
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase; /* Uppercase for emphasis */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-book-now:hover {
+    background-color: #6F3E1A; /* Darker brick red for hover effect */
+    transform: scale(1.05); /* Slight zoom effect for interactivity */
+}
+
+/* Booking Page */
+.book-now {
+    background-color: #F9F9F9; /* Light gray background */
+    padding: 60px 20px;
+}
+
+.booking-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.booking-intro h1 {
+    font-size: 36px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.booking-intro p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #FFFFFF; /* White background for the form */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow for depth */
+}
+
+.booking-form .form-group {
+    margin-bottom: 20px;
+}
+
+.booking-form label {
+    display: block;
+    font-size: 16px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 8px;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="email"],
+.booking-form input[type="tel"],
+.booking-form input[type="date"],
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E0E0E0; /* Light gray border */
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    border-color: #8B4513; /* Brick red border on focus */
+}
+
+.booking-form textarea {
+    height: 120px;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.btn-submit {
+    background-color: #8B4513; /* Brick red background */
+    color: #FFFFFF; /* White text */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #6F3E1A; /* Darker brick red on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Footer */
+.footer {
+    background-color: #FFFFFF; /* White background */
+    border-top: 5px solid #8B4513; /* Brick red top border */
+    padding: 40px 20px;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-top .quick-links,
+.footer-top .social-media,
+.footer-top .contact-info {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 20px;
+}
+
+.footer-top h3 {
+    font-size: 20px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #8B4513; /* Brick red underline */
+    padding-bottom: 10px;
+}
+
+.footer-top ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-top ul li {
+    margin-bottom: 10px;
+}
+
+.footer-top ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.footer-top ul li a:hover {
+    color: #8B4513; /* Brick red on hover */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #555;
+}
+
+.footer-bottom a {
+    color: #8B4513; /* Brick red color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #FFFFFF; /* White background for clarity */
+    border-bottom: 5px solid #8B4513; /* Brick red bottom border for elegance */
+    padding: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.header .logo img {
+    height: 60px; /* Adjust logo height for a more refined appearance */
+}
+
+.navbar {
+    flex: 1;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center align for a balanced look */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Equal spacing for navigation items */
+}
+
+.navbar ul li a {
+    color: #fbf6f6; /* Dark gray text for readability */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #8B4513; /* Brick red color on hover */
+}
+
+.btn-book-now {
+    background-color: #8B4513; /* Brick red background for the button */
+    color: #FFFFFF; /* White text */
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase; /* Uppercase for emphasis */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-book-now:hover {
+    background-color: #6F3E1A; /* Darker brick red for hover effect */
+    transform: scale(1.05); /* Slight zoom effect for interactivity */
+}
+
+/* About Page */
+.about-page {
+    background-color: #F9F9F9; /* Light gray background */
+    padding: 60px 20px;
+}
+
+.about-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-intro h1 {
+    font-size: 36px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-intro p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.unique-features {
+    background-color: #FFFFFF; /* White background for the section */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow for depth */
+    margin-bottom: 60px;
+}
+
+.unique-features h2 {
+    text-align: center;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature-item {
+    flex: 1 1 calc(33.333% - 20px); /* Responsive width with spacing */
+    background-color: #F9F9F9; /* Light background for items */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.feature-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.feature-item h3 {
+    color: #8B4513; /* Brick red color */
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+.location-info {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.location-info h2 {
+    color: #8B4513; /* Brick red color */
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.location-info p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.location-map iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.key-amenities {
+    background-color: #FFFFFF; /* White background for the section */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.key-amenities h2 {
+    text-align: center;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.key-amenities ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.key-amenities li {
+    font-size: 18px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.key-amenities .icon {
+    color: #8B4513; /* Brick red for the icon */
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #FFFFFF; /* White background */
+    border-top: 5px solid #8B4513; /* Brick red top border */
+    padding: 40px 20px;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-top .quick-links,
+.footer-top .social-media,
+.footer-top .contact-info {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 20px;
+}
+
+.footer-top h3 {
+    font-size: 20px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #8B4513; /* Brick red underline */
+    padding-bottom: 10px;
+}
+
+.footer-top ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-top ul li {
+    margin-bottom: 10px;
+}
+
+.footer-top ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.footer-top ul li a:hover {
+    color: #8B4513; /* Brick red on hover */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #555;
+}
+
+.footer-bottom a {
+    color: #8B4513; /* Brick red color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #FFFFFF; /* White background for clarity */
+    border-bottom: 5px solid #8B4513; /* Brick red bottom border for elegance */
+    padding: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.header .logo img {
+    height: 60px; /* Adjust logo height for a more refined appearance */
+}
+
+.navbar {
+    flex: 1;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center align for a balanced look */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Equal spacing for navigation items */
+}
+
+.navbar ul li a {
+    color: #fbfafa; /* Dark gray text for readability */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #8B4513; /* Brick red color on hover */
+}
+
+.btn-book-now {
+    background-color: #8B4513; /* Brick red background for the button */
+    color: #FFFFFF; /* White text */
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase; /* Uppercase for emphasis */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-book-now:hover {
+    background-color: #6F3E1A; /* Darker brick red for hover effect */
+    transform: scale(1.05); /* Slight zoom effect for interactivity */
+}
+
+/* Sign-Up Page */
+.sign-up-page {
+    background-color: #F9F9F9; /* Light gray background */
+    padding: 60px 20px;
+}
+
+.sign-up-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sign-up-intro h1 {
+    font-size: 36px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.sign-up-intro p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sign-up-form {
+    display: flex;
+    justify-content: center;
+}
+
+.sign-up-form .container {
+    max-width: 600px;
+    width: 100%;
+}
+
+.sign-up-form form {
+    background-color: #FFFFFF; /* White background for form */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sign-up-form label {
+    display: block;
+    font-size: 16px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 5px;
+}
+
+.sign-up-form input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #8B4513; /* Brick red border */
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.sign-up-form input:focus {
+    outline: none;
+    border-color: #6F3E1A; /* Darker brick red on focus */
+}
+
+.btn-submit {
+    background-color: #8B4513; /* Brick red background for the button */
+    color: #FFFFFF; /* White text */
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase; /* Uppercase for emphasis */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #6F3E1A; /* Darker brick red for hover effect */
+    transform: scale(1.05); /* Slight zoom effect for interactivity */
+}
+
+/* Footer */
+.footer {
+    background-color: #FFFFFF; /* White background */
+    border-top: 5px solid #8B4513; /* Brick red top border */
+    padding: 40px 20px;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-top .quick-links,
+.footer-top .social-media,
+.footer-top .contact-info {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 20px;
+}
+
+.footer-top h3 {
+    font-size: 20px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #8B4513; /* Brick red underline */
+    padding-bottom: 10px;
+}
+
+.footer-top ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-top ul li {
+    margin-bottom: 10px;
+}
+
+.footer-top ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.footer-top ul li a:hover {
+    color: #8B4513; /* Brick red on hover */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #555;
+}
+
+.footer-bottom a {
+    color: #8B4513; /* Brick red color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #FFFFFF; /* White background for clarity */
+    border-bottom: 5px solid #8B4513; /* Brick red bottom border for elegance */
+    padding: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.header .logo img {
+    height: 60px; /* Adjust logo height for a more refined appearance */
+}
+
+.navbar {
+    flex: 1;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center align for a balanced look */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Equal spacing for navigation items */
+}
+
+.navbar ul li a {
+    color: #f8f3f3; /* Dark gray text for readability */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #8B4513; /* Brick red color on hover */
+}
+
+.btn-book-now {
+    background-color: #8B4513; /* Brick red background for the button */
+    color: #FFFFFF; /* White text */
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase; /* Uppercase for emphasis */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-book-now:hover {
+    background-color: #6F3E1A; /* Darker brick red for hover effect */
+    transform: scale(1.05); /* Slight zoom effect for interactivity */
+}
+
+/* Gallery Page */
+.gallery-page {
+    background-color: #F9F9F9; /* Light gray background */
+    padding: 60px 20px;
+}
+
+.gallery-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.gallery-intro h1 {
+    font-size: 36px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.gallery-intro p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gallery {
+    margin-bottom: 60px;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-item {
+    flex: 1;
+    max-width: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.virtual-tour {
+    text-align: center;
+}
+
+.virtual-tour h2 {
+    font-size: 28px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.virtual-tour p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.virtual-tour iframe {
+    width: 100%;
+    height: 500px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+.footer {
+    background-color: #FFFFFF; /* White background */
+    border-top: 5px solid #8B4513; /* Brick red top border */
+    padding: 40px 20px;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-top .quick-links,
+.footer-top .social-media,
+.footer-top .contact-info {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 20px;
+}
+
+.footer-top h3 {
+    font-size: 20px;
+    color: #8B4513; /* Brick red color */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #8B4513; /* Brick red underline */
+    padding-bottom: 10px;
+}
+
+.footer-top ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-top ul li {
+    margin-bottom: 10px;
+}
+
+.footer-top ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.footer-top ul li a:hover {
+    color: #8B4513; /* Brick red on hover */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #555;
+}
+
+.footer-bottom a {
+    color: #8B4513; /* Brick red color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+
+
